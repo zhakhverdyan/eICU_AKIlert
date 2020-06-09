@@ -56,3 +56,13 @@ ORDER BY 1, 2 ASC) d2
 ON d1.patientunitstayid=d2.patientunitstayid) t4
 ON t3.patientunitstayid=t4.patientunitstayid)
 TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate/patid_aki_label_offset.csv' (format csv);
+
+DROP TABLE IF EXISTS qualifying_admissions CASCADE;
+CREATE TABLE qualifying_admissions
+(
+  patientunitstayid BIGINT NOT NULL,
+  aki_label INT,
+  aki_offset INT
+) ;
+-- load the data
+ \copy qualifying_admissions FROM '~/Insight/eICU_AKIlert/data/intermediate/patid_aki_label_offset.csv' DELIMITER ',' CSV HEADER NULL ''
