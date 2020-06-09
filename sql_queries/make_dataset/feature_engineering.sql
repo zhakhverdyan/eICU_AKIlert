@@ -15,4 +15,16 @@ COPY
  GROUP BY l.patientunitstayid, l.labname) 
 TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate/lab_summary.csv' (format csv);
 
+COPY
+(SELECT vp.patientunitstayid,
+       MIN(vp.sao2) AS min_sao2, MAX(vp.sao2) AS max_sao2, AVG(vp.sao2) AS mean_sao2,
+       MIN(vp.heartrate) AS min_heartrate, MAX(vp.heartrate) AS max_heartrate, AVG(vp.heartrate) AS mean_heartrate,
+       MIN(vp.respiration) AS min_respiration, MAX(vp.respiration) AS max_respiration, AVG(vp.respiration) AS mean_respiration
+  FROM vitalperiodic vp
+ INNER JOIN qualifying_admissions qa
+    ON vp.patientunitstayid=qa.patientunitstayid
+ WHERE vp.observationoffset/60<24
+ GROUP BY vp.patientunitstayid) 
+TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate/vitalperiodic_summary.csv' (format csv);
 
+ 
