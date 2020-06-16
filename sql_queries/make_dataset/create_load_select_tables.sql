@@ -94,7 +94,7 @@ CREATE TABLE intakeoutput
 (
 	intakeoutputid INT NOT NULL,
     patientunitstayid INT NOT NULL,
-	intakeoutputoffset INT NOT NULL,
+	intakeoutputoffset FLOAT NOT NULL,
 	intaketotal NUMERIC(12,4),
 	outputtotal NUMERIC(12,4),
 	dialysistotal NUMERIC(12,4),

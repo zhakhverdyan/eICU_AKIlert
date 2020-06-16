@@ -13,11 +13,10 @@ WHERE a.admitdxpath!='admission diagnosis|All Diagnosis|Non-operative|Diagnosis|
 AND a.admitdxpath!='admission diagnosis|All Diagnosis|Non-operative|Diagnosis|Genitourinary|Renal obstruction'
 AND a.admitdxpath!='admission diagnosis|All Diagnosis|Non-operative|Diagnosis|Genitourinary|Renal neoplasm, cancer'
 AND ph.pasthistoryvalue NOT ILIKE '%renal failure%'
-AND ph.pasthistoryvalue NOT ILIKE '%renal failure%'
 AND CAST(p.age as char) NOT LIKE '1%'
 AND CAST(p.age as char) NOT LIKE '0%'
 AND LENGTH(p.age)>1
-AND p.unitDischargeOffset/60 > 48)
+AND p.unitDischargeOffset/60 > 24)
 AND (d.diagnosisstring ILIKE '%acute renal%' AND d.diagnosisoffset/60>48)
 OR d.diagnosisstring NOT ILIKE '%acute renal%'
 TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate_files/qualifying_admissions.csv' (format csv);
