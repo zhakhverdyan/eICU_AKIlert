@@ -160,3 +160,22 @@ FROM
    AND qa.aki_label = 1) it
 GROUP BY 1)
   TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate/pos_intakeoutput_alldays.csv' (format csv);
+
+
+  -- query to find all negative class patients that underwent dialysis
+  COPY(
+  SELECT distinct i.patientunitstayid, 
+       i.intakeoutputoffset, 
+       i.intaketotal, 
+       i.outputtotal,
+       i.dialysistotal, 
+       i.nettotal 
+  from intakeoutput i
+ INNER JOIN patient p
+    ON i.patientunitstayid=p.patientunitstayid
+ INNER JOIN qualifying_admissions qa
+    ON i.patientunitstayid=qa.patientunitstayid
+ WHERE i.intakeoutputoffset > 0
+   AND qa.aki_label = 0
+   AND i.dialysistotal <> 0)
+TO '/Users/zhannahakhverdyan/Insight/eICU_AKIlert/data/intermediate/negclass_dialysis.csv' (format csv);
