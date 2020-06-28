@@ -2,10 +2,10 @@
 ### Enabling timely intervention for Acute Kidney Injury
 <img src="images/kidneys.png" width="100">
 
-This project aims to create an alert system for an impending risk of acute kidney injury (AKI) to enable timely intervention by the healthcare providers. A demonstration of the project was deployed to Heroku https://akilert.herokuapp.com/
-Github repo for the app https://github.com/zhakhverdyan/AKIlert-app 
+This project aims to create an alert system for an impending risk of acute kidney injury (AKI) to enable timely intervention by the healthcare providers. A demonstration of the project was deployed to [Heroku.](https://akilert.herokuapp.com/)
+Github [repo](https://github.com/zhakhverdyan/AKIlert-app) for the app. 
 
-Link to slide deck https://docs.google.com/presentation/d/1yu-OwJJLWtCPg1jeSClWu2mdHFdyMTq6Dv6G9M1w348/edit?usp=sharing
+Link to slide [deck.](https://docs.google.com/presentation/d/1yu-OwJJLWtCPg1jeSClWu2mdHFdyMTq6Dv6G9M1w348/edit?usp=sharing)
 
 ### AKI facts
 <img src="images/twenty_percent.png" width="200">
