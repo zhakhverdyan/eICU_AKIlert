@@ -20,10 +20,12 @@ Economic burden:
 
 ### Data processing
 <br>For this analysis, I decided to focus on dynamic features only. I generated data instances by aggregating the lab measurement in 2-day windows. Each window was assigned a label of 1 if it was < 36h away from an AKI episode and 0 otherwise. Next, I plotted the correlations between the resulting numerical features. Since the data is not independent (e.g., multiple rows per patient) and there are multiple colinearities, I decided to proceed with a decision tree-based model.
+<br>
 <img src="images/num_correlations.png" width="500">
 
 ### Machine learning
 Trained a random forest and XGBoost classifier and compared the average precision metric to a random classifier. Both models outperform the random classifier 2.5-fold. The model achieves 55% recall at 33% precision.
+<br>
 <img src="images/pr_curve.png" width="300">
 
 ### Feature interpretation
